@@ -1,6 +1,7 @@
 import { ChatOpenAI } from '@langchain/openai';
 import { createAgent, ReactAgent, tool } from 'langchain';
 import z from 'zod';
+import { GPTAPI_KEY } from '../env'
 
 const getWeather = tool(
   async ({ city }, config) => {
@@ -19,7 +20,7 @@ export const getModel = () => {
   const model = new ChatOpenAI({
     model: 'deepseek-v3.1',
     timeout: 60000,
-    apiKey: 'sk-rC0COO68kf3Ws9Pj13AfBd975a1c4aDeA2584b135e8e9e75',
+    apiKey: GPTAPI_KEY,
     configuration: {
       baseURL: 'https://www.gptapi.us/v1',
     },
